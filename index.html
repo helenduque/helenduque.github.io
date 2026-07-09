@@ -503,45 +503,53 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
+/* always open at the top of the page */
+if('scrollRestoration' in history) history.scrollRestoration='manual';
+scrollTo(0,0);
+addEventListener('load',()=>scrollTo(0,0));
+
 /* ================= DATA ================= */
 const FEATURED = [
   {t:"The 1975 — Being Funny in a Foreign Language", c:"Vevo · Official Live", y:"2022", yt:"V8N1J3-6QNg", badge:"UKMVA Nominee"},
   {t:"Koffee — Where I'm From (Live)", c:"Vevo LIFT · Live Film", y:"2022", yt:"YmsVnxeIzVA", badge:"UKMVA Nominee"},
-  {t:"BBC One — New Year Trailer", c:"BBC · Broadcast Campaign", y:"2018", d:"1fKEd1oFgASBdP-BnM8nNWYltQDPfh8KJ"},
+  {t:"BBC One — New Year Trailer", c:"BBC · Broadcast Campaign", y:"2018", d:"1fKEd1oFgASBdP-BnM8nNWYltQDPfh8KJ", img:"1hO3Q3fJDoMek4Vg_KwmqmshTeIwubSIY"},
   {t:"Bad Bunny — El Último Tour del Mundo", c:"Apple Music · Interview + Campaign", y:"2020", d:"1ImT_vRTiqV9QCz9SjZ1c-ypYN-b4-ugn"},
   {t:"Barry Lyndon — Re-release Trailer", c:"BFI · Theatrical Trailer", y:"2016", yt:"XjPSGuJskxM", badge:"Screen Intl Nominee"},
   {t:"Taylor Swift — Songwriter of the Year", c:"Apple Music Awards · Award Film", y:"2020", yt:"_hs5cdzkhpw"},
   {t:"Rich Beyond My Wildest Dreams — Series", c:"Podcast · Edit & Post", y:"2025", yt:"RyIsG8aup4I"},
   {t:"Nathy Peluso — Notas sobre GRASA", c:"Vevo ctrl · Short Film", y:"2024", yt:"HqLsTppbrX8"},
-  {t:"Southpaw — TV Campaign", c:"Theatrical · TV Spot", y:"2015", d:"1qrNj5kQcEqu3HXt2YzhAXz2D-hJ0Jzs3"},
+  {t:"Southpaw — TV Campaign", c:"Theatrical · TV Spot", y:"2015", d:"1qrNj5kQcEqu3HXt2YzhAXz2D-hJ0Jzs3", img:"1o9iRZ8DM61KaJWR2X8iuzqtIQ1EAT_qD"},
   {t:"Jorja Smith — Burn (Live)", c:"Vevo · Official Live", y:"2023", yt:"Z91-sboVVbQ"},
 ];
 const ARCHIVE = [
   {t:"YUNGBLUD — Video Breakdown", c:"Vevo", y:"2020", yt:"0CddjCR7P8s"},
   {t:"BFI LOVE — Season Trailer", c:"BFI", y:"2015", yt:"mPsgoQwB-d0"},
   {t:"Paloma Faith — £200M Jackpot", c:"Rich Beyond My Wildest Dreams · Podcast", y:"2025", yt:"RyIsG8aup4I"},
+  {t:"Victoria — ITV Trailer", c:"ITV · Broadcast", y:"2016", d:"1nK33Rm1gsBWOtl6li94imnOw13-nbcWT", img:"1j1iTBDXc5aZFgilu-Oa-I9mWwgFoVSTC"},
+  {t:"Say Now — White Christmas", c:"Official Music Video", y:"2025", yt:"o6kC3kroZHM"},
+  {t:"Southpaw — TV Spot", c:"Theatrical · TV Spot", y:"2015", d:"1qrNj5kQcEqu3HXt2YzhAXz2D-hJ0Jzs3", img:"1o9iRZ8DM61KaJWR2X8iuzqtIQ1EAT_qD"},
   {t:"Little Mix — Video Breakdown", c:"Vevo", y:"2020", yt:"4XbC6gB7o9s"},
   {t:"El Sur — Re-release Trailer", c:"BFI", y:"2016", yt:"Ox_Vs1T2AWM"},
-  {t:"Matt Lucas — £200M Jackpot", c:"Rich Beyond My Wildest Dreams · Podcast", y:"2025", yt:"OkzPoIpWz48"},
+  {t:"BBC One — New Year Trailer", c:"BBC · Broadcast", y:"2018", d:"1fKEd1oFgASBdP-BnM8nNWYltQDPfh8KJ", img:"1hO3Q3fJDoMek4Vg_KwmqmshTeIwubSIY"},
   {t:"Lola Indigo — Tamagochi", c:"Vevo LIFT", y:"2023", yt:"Yq8sCYHyPxU"},
-  {t:"Bad Bunny — Campaign Promo", c:"Instagram · Apple Music", y:"2020", url:"https://www.instagram.com/p/CImyKROJpko/", ig:{a:"Bad Bunny", p:"Apple Music · Campaign"}},
+  {t:"Bad Bunny — Campaign Promo", c:"Instagram · Apple Music", y:"2020", url:"https://www.instagram.com/p/CImyKROJpko/", img:"1XIgSVWfn-aF2XI608DjW3XvQGmpxPrjD"},
   {t:"Olivia Dean — So Easy (Behind the Scenes)", c:"Vevo · BTS Film", y:"2025", yt:"d66epAQeQaw"},
   {t:"Mahmood — Talata", c:"Vevo LIFT", y:"2024", yt:"4Pfv-wA8Vwk"},
-  {t:"Layton Williams — £200M Jackpot", c:"Rich Beyond My Wildest Dreams · Podcast", y:"2025", yt:"79uhxtWyFnM"},
-  {t:"Elton John — Rocket Hour", c:"Beats 1 · EPK Cut", y:"2018", url:"https://www.instagram.com/p/Bh7CIOeHd2_/", ig:{a:"Elton John", p:"Beats 1 · Apple Music"}},
-  {t:"Nina Chuba — Wildberry Lillet", c:"Vevo DSCVR", y:"2023", yt:"95xDIF5zYCo"},
-  {t:"George Clarke &amp; Max Balegde", c:"Rich Beyond My Wildest Dreams · Podcast", y:"2025", yt:"PXrmtx9yr8U"},
+  {t:"Elvis &amp; Nixon — Theatrical Trailer", c:"eOne · Trailer", y:"2016", d:"1fIswOAc_jCnID7Qhsi5icxxRrhiOEIoS", img:"1I6SL6AbQfzBZRDxI5VUX8-a4vG-vWZbh"},
+  {t:"Elton John — Rocket Hour", c:"Beats 1 · EPK Cut", y:"2018", url:"https://www.instagram.com/p/Bh7CIOeHd2_/", img:"1p7-qiZ8pqOWLqIQ0b_RWprpbV-GsUD92"},
+  {t:"Rauw Alejandro — Album Promo", c:"Apple Music · Promo", y:"2021", d:"1fRqVcVwXVnWuzSOb-iDlksxrHjcF1hB8", img:"1l-ITb3ddkv1kbu9Bx6e32qsYEoniXZ88"},
+  {t:"NFL Going Global — Trailer", c:"Sport · Trailer", y:"2017", d:"1pRe_yy-KWB5aUFTj6VRraGGYaZSpeIpz", img:"1nwg9RtfCMy7vZEnjAMgX3wKHGdef1OWd"},
   {t:"FLO — Immature", c:"Vevo DSCVR", y:"2022", yt:"4yC_2n9VIVY"},
-  {t:"Leigh-Anne — My Ego Told Me To", c:"Instagram · Album Reel", y:"2025", url:"https://www.instagram.com/reel/DS4sGQXDehN/", ig:{a:"Leigh-Anne", p:"Solo Album · Social Cut"}},
+  {t:"Leigh-Anne — My Ego Told Me To", c:"Instagram · Album Reel", y:"2025", url:"https://www.instagram.com/reel/DS4sGQXDehN/", img:"1TfKwbVNHvAaLrDTQL7qnJ-yBM1rvKoCl"},
   {t:"FLO — Check", c:"Vevo Studios", y:"2024", yt:"QJR77KB1wq4"},
   {t:"Dellafuente — El Camino a la Montaña", c:"Vevo ctrl · Short Film", y:"2023", yt:"-sn5pVRslFI"},
-  {t:"YSEULT — Tuning", c:"Vevo Studios", y:"2024", yt:"BHalO1H_Bvc"},
-  {t:"Elton John × Kacey Musgraves", c:"Beats 1 · Rocket Hour", y:"2018", url:"https://www.instagram.com/p/Bh850xlHD9o/", ig:{a:"Elton John × Kacey Musgraves", p:"Beats 1 · Apple Music"}},
-  {t:"Aurora — A Soul With No King", c:"Vevo", y:"2024", yt:"s95nd960XsY"},
+  {t:"We Are Your Friends — TV Spot", c:"Theatrical · TV Spot", y:"2015", d:"1xLBnanNgN8AYoVMs_KdG4hnOnrC9Kc_B"},
+  {t:"A Little Chaos — EPK", c:"eOne · EPK", y:"2015", d:"1GX-E5xyfin8zJS9lOiv687hFu-ANgVuv", img:"1X-Vt-yhZF8SQkVHHzfjRUrZd6kQUx7AG"},
+  {t:"Calvin Harris — Apple Music Festival", c:"Apple Music · Promo", y:"2015", d:"1oTqhC4OQEDALFsMYEq1d8Ka8kYLssEf2", img:"1A6nTRHwrL8-pVkJbBc8aGJLLHHa6c2FO"},
   {t:"Lewis Capaldi — Wish You The Best", c:"Vevo", y:"2023", yt:"EmNBJo17CXA"},
   {t:"Pop Smoke — Dior (Live)", c:"Vevo DSCVR · Artists to Watch", y:"2020", yt:"FIiiMVvSGjw"},
-  {t:"Olivia Dean — The Hardest Part", c:"Vevo DSCVR", y:"2021", yt:"AgSxMMkOtBo"},
-  {t:"Olivia Dean — Reason To Stay", c:"Vevo DSCVR", y:"2021", yt:"AeNORH5vsnM"},
+  {t:"The Duff — TV Campaign", c:"eOne · TV Spot", y:"2015", d:"1f9gm_EQd9KILuq_WJEqB7aUkBkxb_sWx", img:"19xptHCT0RiASdty08lfHqEq1i_7SQRVr"},
+  {t:"Ella Henderson — Me &amp; You", c:"Official Lyric Video", y:"2025", yt:"jd147IkrEN4"},
   {t:"Lola Young — FAKE", c:"Vevo DSCVR", y:"2022", yt:"9uN6b4JUTCk"},
   {t:"Olivia Dean — Baby Steps", c:"Official Visualiser", y:"2025", yt:"9zo1WoxyXz8"},
 ];
@@ -601,7 +609,7 @@ FEATURED.forEach((p,i)=>{
   b.setAttribute('data-cursor','');
   b.setAttribute('data-cursor-text', (p.yt||p.d) ? 'Play' : 'Open');
   b.innerHTML = `
-    ${p.yt?`<img class="thumb-m" loading="lazy" alt="" src="${thumb(p.yt)}">`:p.d?`<img class="thumb-m" loading="lazy" alt="" src="${gthumb(p.d)}">`:''}
+    ${p.img?`<img class="thumb-m" loading="lazy" alt="" src="${gthumb(p.img)}">`:p.yt?`<img class="thumb-m" loading="lazy" alt="" src="${thumb(p.yt)}">`:p.d?`<img class="thumb-m" loading="lazy" alt="" src="${gthumb(p.d)}">`:''}
     <span class="idx">${String(i+1).padStart(2,'0')}</span>
     <span class="t">${p.t}${p.badge?` <span class="badge">✦ ${p.badge}</span>`:''}</span>
     <span class="meta-m"><span class="c">${p.c}</span><span class="y">${p.y}</span></span>`;
@@ -618,8 +626,12 @@ ARCHIVE.forEach(p=>{
   el.setAttribute('data-cursor-text', p.yt ? 'Play':'Open');
   if(p.url){ el.href=p.url; el.target='_blank'; el.rel='noopener'; }
   el.innerHTML = `
-    <div class="ath">${p.yt
+    <div class="ath">${p.img
+      ? `<img loading="lazy" alt="" src="${gthumb(p.img)}">`
+      : p.yt
       ? `<img loading="lazy" alt="" src="${thumb(p.yt)}">`
+      : p.d
+      ? `<img loading="lazy" alt="" src="${gthumb(p.d)}">`
       : p.ig
       ? `<div class="igt"><span class="igt-plat">Instagram — ${p.y}</span><span class="igt-artist">${p.ig.a}</span><span class="igt-sub">${p.ig.p}</span></div>`
       : `<div class="ph">${p.c.split('·')[0].trim()}</div>`}</div>
@@ -653,16 +665,16 @@ document.getElementById('vaultCount').textContent=String(vaultTotal).padStart(2,
 /* filmstrip: two copies for seamless loop. big = featured artists */
 const hi = id => `https://i.ytimg.com/vi/${id}/hq720.jpg`;   // true 16:9, no letterbox bars
 const stripImgs = [
-  {yt:"_hs5cdzkhpw", big:true},                                   // Taylor Swift — first
+  {yt:"_hs5cdzkhpw", big:true},                                   // Taylor Swift — centered on load
   {yt:"V8N1J3-6QNg", big:true},                                   // The 1975
-  {yt:"RASN7ohsJkI", big:true, z:1.18},                           // Insurgent — Tris close-up (no hq720; falls back)
+  {yt:"RASN7ohsJkI", big:true},                                   // Insurgent — Tris close-up (no hq720; falls back)
   {src:gthumb("1ImT_vRTiqV9QCz9SjZ1c-ypYN-b4-ugn"), big:true},    // Bad Bunny — interview wide shot
   {yt:"fZ_JOBCLF-I", big:true},                                   // The LEGO Movie — Emmet
-  {yt:"ioNng23DkIM", big:true},                                   // Blackpink
-  {src:gthumb("1qrNj5kQcEqu3HXt2YzhAXz2D-hJ0Jzs3"), z:1.32},      // Southpaw — title card (crop legal ticker)
+  {src:gthumb("19BOC1tSDPA3WQMPgik7QaoXNBhBdgsQI"), big:true},    // Blackpink — NMD thumbnail
+  {src:gthumb("1o9iRZ8DM61KaJWR2X8iuzqtIQ1EAT_qD")},              // Southpaw — designed thumbnail
   {yt:"YmsVnxeIzVA"},                                             // Koffee
-  {src:gthumb("1knHpFBn24LLSvI_cbFa46-wITgOzSLJL"), z:1.06},      // Netflix — Superpower
-  {yt:"XjPSGuJskxM", z:1.1},                                      // Barry Lyndon
+  {src:gthumb("1knHpFBn24LLSvI_cbFa46-wITgOzSLJL")},              // Netflix — Superpower
+  {yt:"XjPSGuJskxM"},                                             // Barry Lyndon
   {yt:"d66epAQeQaw"},                                             // Olivia Dean — BTS
   {yt:"Z91-sboVVbQ"},                                             // Jorja Smith
 ];
@@ -672,7 +684,6 @@ const stripTrack = document.getElementById('stripTrack');
   d.className='strip-cell'+(o.big?' big':'');
   const im=document.createElement('img');
   im.loading='lazy'; im.alt='';
-  im.style.transform=`scale(${o.z||1.04})`;
   if(o.yt){
     im.src=hi(o.yt);
     im.onerror=()=>{ im.onerror=null; im.src=thumb(o.yt); };
@@ -683,6 +694,12 @@ const stripTrack = document.getElementById('stripTrack');
   d.appendChild(im);
   stripTrack.appendChild(d);
 });
+/* center Taylor Swift (first cell of the 2nd copy) in the viewport on load.
+   marginLeft shifts layout without touching the GSAP x-loop, so the loop stays seamless. */
+(function(){
+  const ts=stripTrack.children[stripImgs.length];
+  if(ts) stripTrack.style.marginLeft = (innerWidth/2 - ts.offsetLeft - ts.offsetWidth/2) + 'px';
+})();
 
 /* ================= LIGHTBOX ================= */
 const lightbox=document.getElementById('lightbox'),
@@ -824,7 +841,8 @@ if(!isTouch){
   const imgs=FEATURED.map(p=>{
     if(!p.yt && !p.d) return null;
     const im=new Image();
-    if(p.yt){ im.src=thumbHi(p.yt); im.onerror=()=>{ im.onerror=null; im.src=thumb(p.yt); }; }
+    if(p.img) im.src=gthumb(p.img);
+    else if(p.yt){ im.src=thumbHi(p.yt); im.onerror=()=>{ im.onerror=null; im.src=thumb(p.yt); }; }
     else im.src=gthumb(p.d);
     preview.appendChild(im);
     return im;
