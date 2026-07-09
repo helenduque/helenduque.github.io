@@ -148,7 +148,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .strip{position:relative;z-index:1;margin-top:.5rem;overflow:hidden;
   border-top:1px solid var(--line);border-bottom:1px solid var(--line);
   margin-left:calc(-1 * var(--pad));margin-right:calc(-1 * var(--pad))}
-.strip-track{display:flex;width:max-content;will-change:transform}
+.strip-track{display:flex;align-items:center;width:max-content;will-change:transform}
 .strip-cell.big{width:clamp(250px,30vw,430px)}
 .strip-cell{width:clamp(190px,23vw,330px);aspect-ratio:16/9;flex:none;
   border-right:1px solid var(--line);overflow:hidden;position:relative}
@@ -535,14 +535,14 @@ const ARCHIVE = [
   {t:"Olivia Dean — So Easy (Behind the Scenes)", c:"Vevo · BTS Film", y:"2025", yt:"d66epAQeQaw"},
   {t:"Mahmood — Talata", c:"Vevo LIFT", y:"2024", yt:"4Pfv-wA8Vwk"},
   {t:"Elvis &amp; Nixon — Theatrical Trailer", c:"eOne · Trailer", y:"2016", d:"1fIswOAc_jCnID7Qhsi5icxxRrhiOEIoS", img:"1I6SL6AbQfzBZRDxI5VUX8-a4vG-vWZbh"},
-  {t:"Elton John × Miley Cyrus — Rocket Hour", c:"Beats 1 · EPK Cut", y:"2018", url:"https://www.instagram.com/p/Bh7CIOeHd2_/", img:"1yz7dLeVj2ppnrMT7Q04Bhz2eyyhnEP8S"},
+  {t:"Elton John — Rocket Hour", c:"Beats 1 · EPK Cut", y:"2018", url:"https://www.instagram.com/p/Bh7CIOeHd2_/", img:"1p7-qiZ8pqOWLqIQ0b_RWprpbV-GsUD92"},
   {t:"Rauw Alejandro — Album Promo", c:"Apple Music · Promo", y:"2021", d:"1fRqVcVwXVnWuzSOb-iDlksxrHjcF1hB8", img:"1l-ITb3ddkv1kbu9Bx6e32qsYEoniXZ88"},
   {t:"NFL Going Global — Trailer", c:"Sport · Trailer", y:"2017", d:"1pRe_yy-KWB5aUFTj6VRraGGYaZSpeIpz", img:"1nwg9RtfCMy7vZEnjAMgX3wKHGdef1OWd"},
   {t:"FLO — Immature", c:"Vevo DSCVR", y:"2022", yt:"4yC_2n9VIVY"},
   {t:"Leigh-Anne — My Ego Told Me To", c:"Instagram · Album Reel", y:"2025", url:"https://www.instagram.com/reel/DS4sGQXDehN/", img:"1TfKwbVNHvAaLrDTQL7qnJ-yBM1rvKoCl", pos:"center 12%"},
-  {t:"Elton John × Kacey Musgraves — Rocket Hour", c:"Beats 1 · EPK Cut", y:"2018", url:"https://www.instagram.com/p/Bh850xlHD9o/", img:"1p7-qiZ8pqOWLqIQ0b_RWprpbV-GsUD92"},
+  {t:"Miley Cyrus — Rocket Hour", c:"Beats 1 · EPK Cut", y:"2018", url:"https://www.instagram.com/p/Bh850xlHD9o/", img:"1yz7dLeVj2ppnrMT7Q04Bhz2eyyhnEP8S"},
   {t:"Dellafuente — El Camino a la Montaña", c:"Vevo ctrl · Short Film", y:"2023", yt:"-sn5pVRslFI"},
-  {t:"We Are Your Friends — TV Spot", c:"Theatrical · TV Spot", y:"2015", d:"1xLBnanNgN8AYoVMs_KdG4hnOnrC9Kc_B"},
+  {t:"We Are Your Friends — TV Spot", c:"Theatrical · TV Spot", y:"2015", d:"1xLBnanNgN8AYoVMs_KdG4hnOnrC9Kc_B", img:"1pgzu8HRbZpqQyMC8PE4GbBS_HdMbdvw1"},
   {t:"A Little Chaos — EPK", c:"eOne · EPK", y:"2015", d:"1GX-E5xyfin8zJS9lOiv687hFu-ANgVuv", img:"1X-Vt-yhZF8SQkVHHzfjRUrZd6kQUx7AG"},
   {t:"Calvin Harris — Apple Music Festival", c:"Apple Music · Promo", y:"2015", d:"1oTqhC4OQEDALFsMYEq1d8Ka8kYLssEf2", img:"1A6nTRHwrL8-pVkJbBc8aGJLLHHa6c2FO"},
   {t:"Lewis Capaldi — Wish You The Best", c:"Vevo", y:"2023", yt:"EmNBJo17CXA"},
@@ -550,7 +550,7 @@ const ARCHIVE = [
   {t:"The Duff — TV Campaign", c:"eOne · TV Spot", y:"2015", d:"1f9gm_EQd9KILuq_WJEqB7aUkBkxb_sWx", img:"19xptHCT0RiASdty08lfHqEq1i_7SQRVr"},
   {t:"Ella Henderson — Me &amp; You", c:"Official Lyric Video", y:"2025", yt:"jd147IkrEN4"},
   {t:"Lola Young — FAKE", c:"Vevo DSCVR", y:"2022", yt:"9uN6b4JUTCk"},
-  {t:"Olivia Dean — Baby Steps", c:"Official Visualiser", y:"2025", yt:"9zo1WoxyXz8"},
+  {t:"Olivia Dean — Baby Steps", c:"Official Visualiser", y:"2025", yt:"9zo1WoxyXz8", img:"1t9_ed0LxdqHH4aC5qe3xPdYl6jr_0d3O"},
 ];
 const VAULT = [
   {g:"Theatrical & Broadcast — Ignition Creative era", items:[
@@ -672,7 +672,7 @@ const stripImgs = [
   {src:gthumb("19BOC1tSDPA3WQMPgik7QaoXNBhBdgsQI"), big:true},    // Blackpink — NMD thumbnail
   {src:gthumb("1o9iRZ8DM61KaJWR2X8iuzqtIQ1EAT_qD")},              // Southpaw — designed thumbnail
   {yt:"YmsVnxeIzVA"},                                             // Koffee
-  {src:gthumb("1knHpFBn24LLSvI_cbFa46-wITgOzSLJL")},              // Netflix — Superpower
+  {src:gthumb("1VcEq9CHNU776pCm7KTSLw5yjM-0IvKOs")},              // Netflix — Superpower (designed thumbnail)
   {yt:"XjPSGuJskxM"},                                             // Barry Lyndon
   {yt:"d66epAQeQaw"},                                             // Olivia Dean — BTS
   {yt:"Z91-sboVVbQ"},                                             // Jorja Smith
