@@ -409,7 +409,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 <section class="work" id="work">
   <div class="section-head">
     <h3>Selected Work</h3>
-    <span class="count">09</span>
+    <span class="count">10</span>
   </div>
   <div class="work-list" id="workList"></div>
 </section>
@@ -489,12 +489,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 const FEATURED = [
   {t:"The 1975 — Being Funny in a Foreign Language", c:"Vevo · Official Live", y:"2022", yt:"V8N1J3-6QNg", badge:"UKMVA Nominee"},
   {t:"Koffee — Where I'm From (Live)", c:"Vevo LIFT · Live Film", y:"2022", yt:"YmsVnxeIzVA", badge:"UKMVA Nominee"},
-  {t:"Bad Bunny — El Último Tour del Mundo", c:"Apple Music · Interview + Campaign", y:"2020", url:"https://music.apple.com/us/music-movie/bad-bunny-el-%C3%BAltimo-tour-del-mundo-interview/1541415336", tile:"El Último Tour del Mundo"},
+  {t:"BBC One — New Year Trailer", c:"BBC · Broadcast Campaign", y:"2018", d:"1fKEd1oFgASBdP-BnM8nNWYltQDPfh8KJ"},
+  {t:"Bad Bunny — El Último Tour del Mundo", c:"Apple Music · Interview + Campaign", y:"2020", d:"1ImT_vRTiqV9QCz9SjZ1c-ypYN-b4-ugn"},
   {t:"Barry Lyndon — Re-release Trailer", c:"BFI · Theatrical Trailer", y:"2016", yt:"XjPSGuJskxM", badge:"Screen Intl Nominee"},
-  {t:"Nathy Peluso — Notas sobre GRASA", c:"Vevo ctrl · Short Film", y:"2024", yt:"HqLsTppbrX8"},
   {t:"Taylor Swift — Songwriter of the Year", c:"Apple Music Awards · Award Film", y:"2020", yt:"_hs5cdzkhpw"},
+  {t:"Rich Beyond My Wildest Dreams — Series", c:"Podcast · Edit & Post", y:"2025", yt:"RyIsG8aup4I"},
+  {t:"Nathy Peluso — Notas sobre GRASA", c:"Vevo ctrl · Short Film", y:"2024", yt:"HqLsTppbrX8"},
   {t:"Dellafuente — El Camino a la Montaña", c:"Vevo ctrl · Short Film", y:"2023", yt:"-sn5pVRslFI"},
-  {t:"Pop Smoke — Dior (Live)", c:"Vevo DSCVR · Artists to Watch", y:"2020", yt:"FIiiMVvSGjw"},
   {t:"Jorja Smith — Burn (Live)", c:"Vevo · Official Live", y:"2023", yt:"Z91-sboVVbQ"},
 ];
 const ARCHIVE = [
@@ -511,6 +512,7 @@ const ARCHIVE = [
   {t:"Olivia Dean — The Hardest Part", c:"Vevo DSCVR", y:"2021", yt:"AgSxMMkOtBo"},
   {t:"Olivia Dean — Reason To Stay", c:"Vevo DSCVR", y:"2021", yt:"AeNORH5vsnM"},
   {t:"Lola Young — FAKE", c:"Vevo DSCVR", y:"2022", yt:"9uN6b4JUTCk"},
+  {t:"Pop Smoke — Dior (Live)", c:"Vevo DSCVR · Artists to Watch", y:"2020", yt:"FIiiMVvSGjw"},
   {t:"BFI LOVE — Season Trailer", c:"BFI", y:"2015", yt:"mPsgoQwB-d0"},
   {t:"El Sur — Re-release Trailer", c:"BFI", y:"2016", yt:"Ox_Vs1T2AWM"},
   {t:"Bad Bunny — Campaign Promo", c:"Instagram · Apple Music", y:"2020", url:"https://www.instagram.com/p/CImyKROJpko/"},
@@ -579,7 +581,7 @@ FEATURED.forEach((p,i)=>{
   b.setAttribute('data-cursor','');
   b.setAttribute('data-cursor-text', p.yt ? 'Play' : 'Open');
   b.innerHTML = `
-    ${p.yt?`<img class="thumb-m" loading="lazy" alt="" src="${thumb(p.yt)}">`:''}
+    ${p.yt?`<img class="thumb-m" loading="lazy" alt="" src="${thumb(p.yt)}">`:p.d?`<img class="thumb-m" loading="lazy" alt="" src="${gthumb(p.d)}">`:''}
     <span class="idx">${String(i+1).padStart(2,'0')}</span>
     <span class="t">${p.t}${p.badge?` <span class="badge">✦ ${p.badge}</span>`:''}</span>
     <span class="meta-m"><span class="c">${p.c}</span><span class="y">${p.y}</span></span>`;
@@ -627,17 +629,19 @@ VAULT.forEach(group=>{
 document.getElementById('vaultCount').textContent=String(vaultTotal).padStart(2,'0');
 
 /* filmstrip: two copies for seamless loop. big = featured artists */
+const gthumb = id => `https://drive.google.com/thumbnail?id=${id}&sz=w640`;
 const stripImgs = [
-  {src:thumb("_hs5cdzkhpw"), big:true},   // Taylor Swift — first
-  {src:thumb("V8N1J3-6QNg"), big:true},   // The 1975
-  {src:thumb("ioNng23DkIM"), big:true},   // Blackpink
-  {src:thumb("BMCpFRrs1Ps"), big:true},   // Insurgent (Divergent Series)
-  {src:thumb("GdLYgU-xT6Q"), big:true},   // Bad Bunny
-  {src:thumb("YmsVnxeIzVA")},             // Koffee
-  {src:thumb("HqLsTppbrX8")},             // Nathy Peluso
-  {src:thumb("Z91-sboVVbQ")},             // Jorja Smith
-  {src:thumb("FIiiMVvSGjw")},             // Pop Smoke
-  {src:thumb("XjPSGuJskxM")},             // Barry Lyndon
+  {src:thumb("_hs5cdzkhpw"), big:true},                          // Taylor Swift — first
+  {src:thumb("V8N1J3-6QNg"), big:true},                          // The 1975
+  {src:thumb("ioNng23DkIM"), big:true},                          // Blackpink
+  {src:thumb("RASN7ohsJkI"), big:true},                          // Insurgent — Tris close-up
+  {src:gthumb("1ImT_vRTiqV9QCz9SjZ1c-ypYN-b4-ugn"), big:true},   // Bad Bunny — interview wide shot
+  {src:gthumb("11hWkop211Bnfx2iQOeQUtZ0T5_m3YSUn")},             // LEGO Movie Season
+  {src:thumb("d66epAQeQaw")},                                    // Olivia Dean — BTS
+  {src:thumb("YmsVnxeIzVA")},                                    // Koffee
+  {src:thumb("HqLsTppbrX8")},                                    // Nathy Peluso
+  {src:thumb("Z91-sboVVbQ")},                                    // Jorja Smith
+  {src:thumb("XjPSGuJskxM")},                                    // Barry Lyndon
 ];
 const stripTrack = document.getElementById('stripTrack');
 [...stripImgs,...stripImgs].forEach(o=>{
@@ -785,10 +789,10 @@ if(!isTouch){
 
   /* preload preview imgs and hover logic for featured rows */
   const imgs=FEATURED.map(p=>{
-    if(!p.yt) return null;
+    if(!p.yt && !p.d) return null;
     const im=new Image();
-    im.src=thumbHi(p.yt);
-    im.onerror=()=>{ im.onerror=null; im.src=thumb(p.yt); };
+    if(p.yt){ im.src=thumbHi(p.yt); im.onerror=()=>{ im.onerror=null; im.src=thumb(p.yt); }; }
+    else im.src=gthumb(p.d);
     preview.appendChild(im);
     return im;
   });
