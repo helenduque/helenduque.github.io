@@ -571,6 +571,7 @@ const VAULT = [
 ];
 const thumb = id => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
 const thumbHi = id => `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`;
+const gthumb = id => `https://drive.google.com/thumbnail?id=${id}&sz=w640`;
 
 /* ================= BUILD DOM ================= */
 const workList = document.getElementById('workList');
@@ -629,7 +630,6 @@ VAULT.forEach(group=>{
 document.getElementById('vaultCount').textContent=String(vaultTotal).padStart(2,'0');
 
 /* filmstrip: two copies for seamless loop. big = featured artists */
-const gthumb = id => `https://drive.google.com/thumbnail?id=${id}&sz=w640`;
 const stripImgs = [
   {src:thumb("_hs5cdzkhpw"), big:true},                          // Taylor Swift — first
   {src:thumb("V8N1J3-6QNg"), big:true},                          // The 1975
