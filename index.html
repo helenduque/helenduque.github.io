@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Helen Duque — Senior Editor &amp; Creative Producer</title>
 <meta name="description" content="Helen Duque is a London-based senior editor and creative producer. 1000+ trailers, TV spots, live films and campaigns for Universal Pictures, Paramount, BBC, Disney+, Vevo and Apple Music.">
+<meta name="theme-color" content="#0b0a09">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Helen Duque — Senior Editor & Creative Producer">
+<meta property="og:description" content="1000+ trailers, TV spots, live films and campaigns for Universal Pictures, Paramount, BBC, Disney+, Vevo and Apple Music. London, working worldwide.">
+<meta property="og:url" content="https://helenduque.github.io/">
+<meta property="og:image" content="https://i.ytimg.com/vi/V8N1J3-6QNg/hq720.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 107 100'%3E%3Crect x='-10' y='-4' width='130' height='110' rx='14' fill='%230b0a09'/%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpolygon points='-10,-5 110,-5 110,42 -10,58'/%3E%3C/clipPath%3E%3CclipPath id='b'%3E%3Cpolygon points='-10,58 110,42 110,105 -10,105'/%3E%3C/clipPath%3E%3Cg id='h'%3E%3Crect x='4' y='5' width='13' height='90'/%3E%3Crect x='31' y='5' width='13' height='90'/%3E%3Crect x='17' y='44' width='14' height='12'/%3E%3Crect x='52' y='5' width='13' height='90'/%3E%3Cpath fill-rule='evenodd' d='M63,5 H72 C90,5 99,22 99,50 C99,78 90,95 72,95 H63 Z M65,19 H71 C82,19 86,31 86,50 C86,69 82,81 71,81 H65 Z'/%3E%3C/g%3E%3C/defs%3E%3Cg clip-path='url(%23b)' fill='%23e9e4da'%3E%3Cuse href='%23h'/%3E%3C/g%3E%3Cline x1='-6' y1='59.4' x2='112' y2='43.6' stroke='%23ff4d00' stroke-width='2.6'/%3E%3Cg transform='translate(7,0)'%3E%3Cg clip-path='url(%23a)' fill='%23e9e4da'%3E%3Cuse href='%23h'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -495,7 +502,7 @@ const FEATURED = [
   {t:"Taylor Swift — Songwriter of the Year", c:"Apple Music Awards · Award Film", y:"2020", yt:"_hs5cdzkhpw"},
   {t:"Rich Beyond My Wildest Dreams — Series", c:"Podcast · Edit & Post", y:"2025", yt:"RyIsG8aup4I"},
   {t:"Nathy Peluso — Notas sobre GRASA", c:"Vevo ctrl · Short Film", y:"2024", yt:"HqLsTppbrX8"},
-  {t:"Dellafuente — El Camino a la Montaña", c:"Vevo ctrl · Short Film", y:"2023", yt:"-sn5pVRslFI"},
+  {t:"Southpaw — TV Campaign", c:"Theatrical · TV Spot", y:"2015", d:"1qrNj5kQcEqu3HXt2YzhAXz2D-hJ0Jzs3"},
   {t:"Jorja Smith — Burn (Live)", c:"Vevo · Official Live", y:"2023", yt:"Z91-sboVVbQ"},
 ];
 const ARCHIVE = [
@@ -513,6 +520,7 @@ const ARCHIVE = [
   {t:"Olivia Dean — Reason To Stay", c:"Vevo DSCVR", y:"2021", yt:"AeNORH5vsnM"},
   {t:"Lola Young — FAKE", c:"Vevo DSCVR", y:"2022", yt:"9uN6b4JUTCk"},
   {t:"Pop Smoke — Dior (Live)", c:"Vevo DSCVR · Artists to Watch", y:"2020", yt:"FIiiMVvSGjw"},
+  {t:"Dellafuente — El Camino a la Montaña", c:"Vevo ctrl · Short Film", y:"2023", yt:"-sn5pVRslFI"},
   {t:"BFI LOVE — Season Trailer", c:"BFI", y:"2015", yt:"mPsgoQwB-d0"},
   {t:"El Sur — Re-release Trailer", c:"BFI", y:"2016", yt:"Ox_Vs1T2AWM"},
   {t:"Bad Bunny — Campaign Promo", c:"Instagram · Apple Music", y:"2020", url:"https://www.instagram.com/p/CImyKROJpko/"},
@@ -630,24 +638,31 @@ VAULT.forEach(group=>{
 document.getElementById('vaultCount').textContent=String(vaultTotal).padStart(2,'0');
 
 /* filmstrip: two copies for seamless loop. big = featured artists */
+const hi = id => `https://i.ytimg.com/vi/${id}/hq720.jpg`;   // true 16:9, no letterbox bars
 const stripImgs = [
-  {src:thumb("_hs5cdzkhpw"), big:true},                          // Taylor Swift — first
-  {src:thumb("V8N1J3-6QNg"), big:true},                          // The 1975
-  {src:thumb("ioNng23DkIM"), big:true},                          // Blackpink
-  {src:thumb("RASN7ohsJkI"), big:true},                          // Insurgent — Tris close-up
-  {src:gthumb("1ImT_vRTiqV9QCz9SjZ1c-ypYN-b4-ugn"), big:true},   // Bad Bunny — interview wide shot
-  {src:gthumb("11hWkop211Bnfx2iQOeQUtZ0T5_m3YSUn"), big:true},   // LEGO Movie Season
-  {src:thumb("d66epAQeQaw")},                                    // Olivia Dean — BTS
-  {src:thumb("YmsVnxeIzVA")},                                    // Koffee
-  {src:thumb("HqLsTppbrX8")},                                    // Nathy Peluso
-  {src:thumb("Z91-sboVVbQ")},                                    // Jorja Smith
-  {src:thumb("XjPSGuJskxM")},                                    // Barry Lyndon
+  {yt:"_hs5cdzkhpw", big:true},                                   // Taylor Swift — first
+  {yt:"V8N1J3-6QNg", big:true},                                   // The 1975
+  {yt:"RASN7ohsJkI", big:true, z:1.12},                           // Insurgent — Tris close-up
+  {src:gthumb("1ImT_vRTiqV9QCz9SjZ1c-ypYN-b4-ugn"), big:true},    // Bad Bunny — interview wide shot
+  {yt:"fZ_JOBCLF-I", big:true},                                   // The LEGO Movie — Emmet
+  {yt:"ioNng23DkIM", big:true},                                   // Blackpink
+  {src:gthumb("1qrNj5kQcEqu3HXt2YzhAXz2D-hJ0Jzs3"), z:1.06},      // Southpaw — title card
+  {yt:"YmsVnxeIzVA"},                                             // Koffee
+  {src:gthumb("1knHpFBn24LLSvI_cbFa46-wITgOzSLJL"), z:1.06},      // Netflix — Superpower
+  {yt:"XjPSGuJskxM", z:1.1},                                      // Barry Lyndon
+  {yt:"d66epAQeQaw"},                                             // Olivia Dean — BTS
+  {yt:"Z91-sboVVbQ"},                                             // Jorja Smith
 ];
 const stripTrack = document.getElementById('stripTrack');
 [...stripImgs,...stripImgs].forEach(o=>{
   const d=document.createElement('div');
   d.className='strip-cell'+(o.big?' big':'');
-  d.innerHTML=`<img loading="lazy" alt="" src="${o.src}">`;
+  const im=document.createElement('img');
+  im.loading='lazy'; im.alt='';
+  im.style.transform=`scale(${o.z||1.04})`;
+  if(o.yt){ im.src=hi(o.yt); im.onerror=()=>{ im.onerror=null; im.src=thumb(o.yt); }; }
+  else im.src=o.src;
+  d.appendChild(im);
   stripTrack.appendChild(d);
 });
 
