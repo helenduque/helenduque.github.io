@@ -150,12 +150,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   margin-left:calc(-1 * var(--pad));margin-right:calc(-1 * var(--pad))}
 .strip-track{display:flex;width:max-content;will-change:transform}
 .strip-cell.big{width:clamp(250px,30vw,430px)}
-.strip-cell.big img{filter:grayscale(.15) contrast(1.05) brightness(.92)}
 .strip-cell{width:clamp(190px,23vw,330px);aspect-ratio:16/9;flex:none;
   border-right:1px solid var(--line);overflow:hidden;position:relative}
-.strip-cell img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1) brightness(.72);
+.strip-cell img{width:100%;height:100%;object-fit:cover;filter:contrast(1.04) brightness(.88);
   transition:filter .4s}
-.strip-cell:hover img{filter:grayscale(0) contrast(1.05) brightness(.95)}
+.strip-cell:hover img{filter:contrast(1.04) brightness(1)}
 
 /* ============ MARQUEE ============ */
 .clients{padding:5rem 0 4.5rem;overflow:hidden}
@@ -536,12 +535,12 @@ const ARCHIVE = [
   {t:"Olivia Dean — So Easy (Behind the Scenes)", c:"Vevo · BTS Film", y:"2025", yt:"d66epAQeQaw"},
   {t:"Mahmood — Talata", c:"Vevo LIFT", y:"2024", yt:"4Pfv-wA8Vwk"},
   {t:"Elvis &amp; Nixon — Theatrical Trailer", c:"eOne · Trailer", y:"2016", d:"1fIswOAc_jCnID7Qhsi5icxxRrhiOEIoS", img:"1I6SL6AbQfzBZRDxI5VUX8-a4vG-vWZbh"},
-  {t:"Elton John — Rocket Hour", c:"Beats 1 · EPK Cut", y:"2018", url:"https://www.instagram.com/p/Bh7CIOeHd2_/", img:"1p7-qiZ8pqOWLqIQ0b_RWprpbV-GsUD92"},
+  {t:"Elton John × Miley Cyrus — Rocket Hour", c:"Beats 1 · EPK Cut", y:"2018", url:"https://www.instagram.com/p/Bh7CIOeHd2_/", img:"1yz7dLeVj2ppnrMT7Q04Bhz2eyyhnEP8S"},
   {t:"Rauw Alejandro — Album Promo", c:"Apple Music · Promo", y:"2021", d:"1fRqVcVwXVnWuzSOb-iDlksxrHjcF1hB8", img:"1l-ITb3ddkv1kbu9Bx6e32qsYEoniXZ88"},
   {t:"NFL Going Global — Trailer", c:"Sport · Trailer", y:"2017", d:"1pRe_yy-KWB5aUFTj6VRraGGYaZSpeIpz", img:"1nwg9RtfCMy7vZEnjAMgX3wKHGdef1OWd"},
   {t:"FLO — Immature", c:"Vevo DSCVR", y:"2022", yt:"4yC_2n9VIVY"},
-  {t:"Leigh-Anne — My Ego Told Me To", c:"Instagram · Album Reel", y:"2025", url:"https://www.instagram.com/reel/DS4sGQXDehN/", img:"1TfKwbVNHvAaLrDTQL7qnJ-yBM1rvKoCl"},
-  {t:"FLO — Check", c:"Vevo Studios", y:"2024", yt:"QJR77KB1wq4"},
+  {t:"Leigh-Anne — My Ego Told Me To", c:"Instagram · Album Reel", y:"2025", url:"https://www.instagram.com/reel/DS4sGQXDehN/", img:"1TfKwbVNHvAaLrDTQL7qnJ-yBM1rvKoCl", pos:"center 12%"},
+  {t:"Elton John × Kacey Musgraves — Rocket Hour", c:"Beats 1 · EPK Cut", y:"2018", url:"https://www.instagram.com/p/Bh850xlHD9o/", img:"1p7-qiZ8pqOWLqIQ0b_RWprpbV-GsUD92"},
   {t:"Dellafuente — El Camino a la Montaña", c:"Vevo ctrl · Short Film", y:"2023", yt:"-sn5pVRslFI"},
   {t:"We Are Your Friends — TV Spot", c:"Theatrical · TV Spot", y:"2015", d:"1xLBnanNgN8AYoVMs_KdG4hnOnrC9Kc_B"},
   {t:"A Little Chaos — EPK", c:"eOne · EPK", y:"2015", d:"1GX-E5xyfin8zJS9lOiv687hFu-ANgVuv", img:"1X-Vt-yhZF8SQkVHHzfjRUrZd6kQUx7AG"},
@@ -627,7 +626,7 @@ ARCHIVE.forEach(p=>{
   if(p.url){ el.href=p.url; el.target='_blank'; el.rel='noopener'; }
   el.innerHTML = `
     <div class="ath">${p.img
-      ? `<img loading="lazy" alt="" src="${gthumb(p.img)}">`
+      ? `<img loading="lazy" alt="" src="${gthumb(p.img)}" style="object-position:${p.pos||'center'}">`
       : p.yt
       ? `<img loading="lazy" alt="" src="${thumb(p.yt)}">`
       : p.d
@@ -668,7 +667,7 @@ const stripImgs = [
   {yt:"_hs5cdzkhpw", big:true},                                   // Taylor Swift — centered on load
   {yt:"V8N1J3-6QNg", big:true},                                   // The 1975
   {yt:"RASN7ohsJkI", big:true},                                   // Insurgent — Tris close-up (no hq720; falls back)
-  {src:gthumb("1ImT_vRTiqV9QCz9SjZ1c-ypYN-b4-ugn"), big:true},    // Bad Bunny — interview wide shot
+  {src:gthumb("1XIgSVWfn-aF2XI608DjW3XvQGmpxPrjD"), big:true},    // Bad Bunny — designed thumbnail
   {yt:"fZ_JOBCLF-I", big:true},                                   // The LEGO Movie — Emmet
   {src:gthumb("19BOC1tSDPA3WQMPgik7QaoXNBhBdgsQI"), big:true},    // Blackpink — NMD thumbnail
   {src:gthumb("1o9iRZ8DM61KaJWR2X8iuzqtIQ1EAT_qD")},              // Southpaw — designed thumbnail
@@ -679,7 +678,7 @@ const stripImgs = [
   {yt:"Z91-sboVVbQ"},                                             // Jorja Smith
 ];
 const stripTrack = document.getElementById('stripTrack');
-[...stripImgs,...stripImgs].forEach(o=>{
+[...stripImgs,...stripImgs,...stripImgs].forEach(o=>{
   const d=document.createElement('div');
   d.className='strip-cell'+(o.big?' big':'');
   const im=document.createElement('img');
@@ -694,8 +693,9 @@ const stripTrack = document.getElementById('stripTrack');
   d.appendChild(im);
   stripTrack.appendChild(d);
 });
-/* center Taylor Swift (first cell of the 2nd copy) in the viewport on load.
-   marginLeft shifts layout without touching the GSAP x-loop, so the loop stays seamless. */
+/* center Taylor Swift (first cell of the MIDDLE copy) in the viewport on load.
+   marginLeft shifts layout without touching the GSAP x-loop; with three copies
+   there is always content on both sides while the loop wraps. */
 (function(){
   const ts=stripTrack.children[stripImgs.length];
   if(ts) stripTrack.style.marginLeft = (innerWidth/2 - ts.offsetLeft - ts.offsetWidth/2) + 'px';
@@ -766,7 +766,7 @@ if(reduced){
 
 /* --- filmstrip loop + scroll skew --- */
 if(!reduced){
-  const half=()=>stripTrack.scrollWidth/2;
+  const half=()=>stripTrack.scrollWidth/3;   // width of one copy (track holds three)
   const loop=gsap.to(stripTrack,{x:()=>-half(),duration:60,ease:'none',repeat:-1,
     modifiers:{x:gsap.utils.unitize(v=>parseFloat(v)%half())}});
   ScrollTrigger.create({
