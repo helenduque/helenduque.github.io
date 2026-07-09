@@ -580,7 +580,7 @@ FEATURED.forEach((p,i)=>{
   b.className = 'work-row';
   b.dataset.i = i;
   b.setAttribute('data-cursor','');
-  b.setAttribute('data-cursor-text', p.yt ? 'Play' : 'Open');
+  b.setAttribute('data-cursor-text', (p.yt||p.d) ? 'Play' : 'Open');
   b.innerHTML = `
     ${p.yt?`<img class="thumb-m" loading="lazy" alt="" src="${thumb(p.yt)}">`:p.d?`<img class="thumb-m" loading="lazy" alt="" src="${gthumb(p.d)}">`:''}
     <span class="idx">${String(i+1).padStart(2,'0')}</span>
