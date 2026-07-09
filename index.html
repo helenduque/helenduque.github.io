@@ -235,6 +235,17 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .archive-cell .ath .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;
   font-family:var(--font-serif);font-style:italic;color:var(--dim);font-size:1.05rem;
   background:linear-gradient(135deg,#171310,#241408)}
+.archive-cell .ath .igt{width:100%;height:100%;display:flex;flex-direction:column;justify-content:flex-end;
+  gap:.2rem;padding:1rem 1.1rem;background:
+  radial-gradient(120% 120% at 85% 0%,rgba(255,77,0,.28),transparent 55%),
+  linear-gradient(150deg,#1a1512,#2e180a 65%,#3f1d07)}
+.archive-cell .ath .igt-plat{font-family:var(--font-mono);font-size:.52rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:auto;padding-top:.1rem}
+.archive-cell .ath .igt-artist{font-family:var(--font-serif);font-style:italic;
+  font-size:clamp(1.15rem,1.8vw,1.5rem);line-height:1.05;color:var(--bone)}
+.archive-cell .ath .igt-sub{font-family:var(--font-mono);font-size:.52rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--dim)}
+.archive-cell:hover .ath .igt-artist{color:#fff}
 .archive-cell h4{font-weight:700;font-stretch:82%;font-size:1rem;line-height:1.2;text-transform:uppercase}
 .archive-cell .am{font-family:var(--font-mono);font-size:.57rem;letter-spacing:.14em;
   text-transform:uppercase;color:var(--dim);display:flex;justify-content:space-between;gap:.6rem}
@@ -507,32 +518,32 @@ const FEATURED = [
 ];
 const ARCHIVE = [
   {t:"YUNGBLUD — Video Breakdown", c:"Vevo", y:"2020", yt:"0CddjCR7P8s"},
+  {t:"BFI LOVE — Season Trailer", c:"BFI", y:"2015", yt:"mPsgoQwB-d0"},
+  {t:"Paloma Faith — £200M Jackpot", c:"Rich Beyond My Wildest Dreams · Podcast", y:"2025", yt:"RyIsG8aup4I"},
   {t:"Little Mix — Video Breakdown", c:"Vevo", y:"2020", yt:"4XbC6gB7o9s"},
+  {t:"El Sur — Re-release Trailer", c:"BFI", y:"2016", yt:"Ox_Vs1T2AWM"},
+  {t:"Matt Lucas — £200M Jackpot", c:"Rich Beyond My Wildest Dreams · Podcast", y:"2025", yt:"OkzPoIpWz48"},
   {t:"Lola Indigo — Tamagochi", c:"Vevo LIFT", y:"2023", yt:"Yq8sCYHyPxU"},
+  {t:"Bad Bunny — Campaign Promo", c:"Instagram · Apple Music", y:"2020", url:"https://www.instagram.com/p/CImyKROJpko/", ig:{a:"Bad Bunny", p:"Apple Music · Campaign"}},
+  {t:"Olivia Dean — So Easy (Behind the Scenes)", c:"Vevo · BTS Film", y:"2025", yt:"d66epAQeQaw"},
   {t:"Mahmood — Talata", c:"Vevo LIFT", y:"2024", yt:"4Pfv-wA8Vwk"},
+  {t:"Layton Williams — £200M Jackpot", c:"Rich Beyond My Wildest Dreams · Podcast", y:"2025", yt:"79uhxtWyFnM"},
+  {t:"Elton John — Rocket Hour", c:"Beats 1 · EPK Cut", y:"2018", url:"https://www.instagram.com/p/Bh7CIOeHd2_/", ig:{a:"Elton John", p:"Beats 1 · Apple Music"}},
   {t:"Nina Chuba — Wildberry Lillet", c:"Vevo DSCVR", y:"2023", yt:"95xDIF5zYCo"},
+  {t:"George Clarke &amp; Max Balegde", c:"Rich Beyond My Wildest Dreams · Podcast", y:"2025", yt:"PXrmtx9yr8U"},
   {t:"FLO — Immature", c:"Vevo DSCVR", y:"2022", yt:"4yC_2n9VIVY"},
+  {t:"Leigh-Anne — My Ego Told Me To", c:"Instagram · Album Reel", y:"2025", url:"https://www.instagram.com/reel/DS4sGQXDehN/", ig:{a:"Leigh-Anne", p:"Solo Album · Social Cut"}},
   {t:"FLO — Check", c:"Vevo Studios", y:"2024", yt:"QJR77KB1wq4"},
+  {t:"Dellafuente — El Camino a la Montaña", c:"Vevo ctrl · Short Film", y:"2023", yt:"-sn5pVRslFI"},
   {t:"YSEULT — Tuning", c:"Vevo Studios", y:"2024", yt:"BHalO1H_Bvc"},
+  {t:"Elton John × Kacey Musgraves", c:"Beats 1 · Rocket Hour", y:"2018", url:"https://www.instagram.com/p/Bh850xlHD9o/", ig:{a:"Elton John × Kacey Musgraves", p:"Beats 1 · Apple Music"}},
   {t:"Aurora — A Soul With No King", c:"Vevo", y:"2024", yt:"s95nd960XsY"},
   {t:"Lewis Capaldi — Wish You The Best", c:"Vevo", y:"2023", yt:"EmNBJo17CXA"},
+  {t:"Pop Smoke — Dior (Live)", c:"Vevo DSCVR · Artists to Watch", y:"2020", yt:"FIiiMVvSGjw"},
   {t:"Olivia Dean — The Hardest Part", c:"Vevo DSCVR", y:"2021", yt:"AgSxMMkOtBo"},
   {t:"Olivia Dean — Reason To Stay", c:"Vevo DSCVR", y:"2021", yt:"AeNORH5vsnM"},
   {t:"Lola Young — FAKE", c:"Vevo DSCVR", y:"2022", yt:"9uN6b4JUTCk"},
-  {t:"Pop Smoke — Dior (Live)", c:"Vevo DSCVR · Artists to Watch", y:"2020", yt:"FIiiMVvSGjw"},
-  {t:"Dellafuente — El Camino a la Montaña", c:"Vevo ctrl · Short Film", y:"2023", yt:"-sn5pVRslFI"},
-  {t:"BFI LOVE — Season Trailer", c:"BFI", y:"2015", yt:"mPsgoQwB-d0"},
-  {t:"El Sur — Re-release Trailer", c:"BFI", y:"2016", yt:"Ox_Vs1T2AWM"},
-  {t:"Bad Bunny — Campaign Promo", c:"Instagram · Apple Music", y:"2020", url:"https://www.instagram.com/p/CImyKROJpko/"},
-  {t:"Social Cut — 001", c:"Instagram · Campaign", y:"2018", url:"https://www.instagram.com/p/Bh7CIOeHd2_/"},
-  {t:"Social Cut — 002", c:"Instagram · Campaign", y:"2018", url:"https://www.instagram.com/p/Bh850xlHD9o/"},
-  {t:"Olivia Dean — So Easy (Behind the Scenes)", c:"Vevo · BTS Film", y:"2025", yt:"d66epAQeQaw"},
   {t:"Olivia Dean — Baby Steps", c:"Official Visualiser", y:"2025", yt:"9zo1WoxyXz8"},
-  {t:"Paloma Faith — £200M Jackpot", c:"Rich Beyond My Wildest Dreams · Podcast", y:"2025", yt:"RyIsG8aup4I"},
-  {t:"Layton Williams — £200M Jackpot", c:"Rich Beyond My Wildest Dreams · Podcast", y:"2025", yt:"79uhxtWyFnM"},
-  {t:"George Clarke &amp; Max Balegde", c:"Rich Beyond My Wildest Dreams · Podcast", y:"2025", yt:"PXrmtx9yr8U"},
-  {t:"Matt Lucas — £200M Jackpot", c:"Rich Beyond My Wildest Dreams · Podcast", y:"2025", yt:"OkzPoIpWz48"},
-  {t:"Recent Reel", c:"Instagram", y:"2025", url:"https://www.instagram.com/reel/DS4sGQXDehN/"},
 ];
 const VAULT = [
   {g:"Theatrical & Broadcast — Ignition Creative era", items:[
@@ -609,6 +620,8 @@ ARCHIVE.forEach(p=>{
   el.innerHTML = `
     <div class="ath">${p.yt
       ? `<img loading="lazy" alt="" src="${thumb(p.yt)}">`
+      : p.ig
+      ? `<div class="igt"><span class="igt-plat">Instagram — ${p.y}</span><span class="igt-artist">${p.ig.a}</span><span class="igt-sub">${p.ig.p}</span></div>`
       : `<div class="ph">${p.c.split('·')[0].trim()}</div>`}</div>
     <h4>${p.t}</h4>
     <div class="am"><span>${p.c}</span><span>${p.y}</span></div>`;
@@ -642,7 +655,7 @@ const hi = id => `https://i.ytimg.com/vi/${id}/hq720.jpg`;   // true 16:9, no le
 const stripImgs = [
   {yt:"_hs5cdzkhpw", big:true},                                   // Taylor Swift — first
   {yt:"V8N1J3-6QNg", big:true},                                   // The 1975
-  {yt:"RASN7ohsJkI", big:true, z:1.12},                           // Insurgent — Tris close-up
+  {yt:"RASN7ohsJkI", big:true, z:1.18},                           // Insurgent — Tris close-up (no hq720; falls back)
   {src:gthumb("1ImT_vRTiqV9QCz9SjZ1c-ypYN-b4-ugn"), big:true},    // Bad Bunny — interview wide shot
   {yt:"fZ_JOBCLF-I", big:true},                                   // The LEGO Movie — Emmet
   {yt:"ioNng23DkIM", big:true},                                   // Blackpink
@@ -660,7 +673,12 @@ const stripTrack = document.getElementById('stripTrack');
   const im=document.createElement('img');
   im.loading='lazy'; im.alt='';
   im.style.transform=`scale(${o.z||1.04})`;
-  if(o.yt){ im.src=hi(o.yt); im.onerror=()=>{ im.onerror=null; im.src=thumb(o.yt); }; }
+  if(o.yt){
+    im.src=hi(o.yt);
+    im.onerror=()=>{ im.onerror=null; im.src=thumb(o.yt); };
+    // YouTube serves a tiny grey placeholder (with HTTP 200) when hq720 doesn't exist
+    im.onload=()=>{ if(im.naturalWidth<=120){ im.onload=null; im.src=thumb(o.yt); } };
+  }
   else im.src=o.src;
   d.appendChild(im);
   stripTrack.appendChild(d);
