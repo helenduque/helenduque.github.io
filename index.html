@@ -485,8 +485,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 <footer class="footer" id="contact">
   <div class="footer-cta">
     <div class="small">Have a project? Let's cut it together</div>
-    <a class="footer-mail" href="mailto:hlnduque@gmail.com" data-cursor data-cursor-text="Say hi">
-      hlnduque<span class="at">@</span>gmail.com
+    <!-- email is assembled by JS so spam bots scraping the HTML never see it -->
+    <a class="footer-mail" id="mailLink" href="#contact" data-cursor data-cursor-text="Say hi">
+      Get in touch
     </a>
   </div>
   <div class="footer-bottom">
@@ -738,6 +739,17 @@ function closeLightbox(){
 document.getElementById('lightboxClose').addEventListener('click',closeLightbox);
 lightbox.addEventListener('click',e=>{ if(e.target===lightbox) closeLightbox(); });
 addEventListener('keydown',e=>{ if(e.key==='Escape') closeLightbox(); });
+
+/* ================= EMAIL (anti-spam) ================= */
+/* stored reversed and split, rebuilt only in a real browser */
+(function(){
+  const u=['e','u','q','u','d','n','l','h'].reverse().join('');
+  const d=['moc','.','liamg'].map(s=>s.split('').reverse().join('')).reverse().join('');
+  const a=document.getElementById('mailLink');
+  if(!a) return;
+  a.href='mail'+'to:'+u+'@'+d;
+  a.innerHTML=u+'<span class="at">@</span>'+d;
+})();
 
 /* ================= CLOCK ================= */
 setInterval(()=>{
