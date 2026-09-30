@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0.000 0.000 107.000 100.000" role="img" aria-label="Helen Duque monogram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-12.000 -15.500 131.000 131.000" role="img" aria-label="Helen Duque monogram">
   <defs>
     <clipPath id="box"><rect x="0" y="0" width="107" height="100"/></clipPath>
     <clipPath id="cutTop"><polygon points="-10,-5 110,-5 110,41.0667 -10,57.0667"/></clipPath>
     <clipPath id="cutBottom"><polygon points="-10,58.0000 110,42.0000 110,105 -10,105"/></clipPath>
   </defs>
-  
+  <rect x="-12.0" y="-15.5" width="131" height="131" rx="26" fill="#0b0a09"/>
   <g clip-path="url(#box)">
     <g clip-path="url(#cutBottom)" fill="#e9e4da"><path d="M4,5H17V95H4Z M31,5H44V95H31Z"/><path fill-rule="evenodd" d="M52,5H72C90,5 99,22 99,50C99,78 90,95 72,95H52Z M65,19V81H71C82,81 86,69 86,50C86,31 82,19 71,19Z"/></g>
     <g transform="translate(7,0)"><g clip-path="url(#cutTop)" fill="#e9e4da"><path d="M4,5H17V44H31V5H44V95H31V56H17V95H4Z"/><path fill-rule="evenodd" d="M52,5H72C90,5 99,22 99,50C99,78 90,95 72,95H52Z M65,19V81H71C82,81 86,69 86,50C86,31 82,19 71,19Z"/></g></g>
