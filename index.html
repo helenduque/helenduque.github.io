@@ -814,12 +814,14 @@ if(!reduced){
   el.innerHTML='';
   nodes.forEach(n=>{
     if(n.nodeType===3){
+      // keep the original spacing exactly (no extra space before punctuation)
       n.textContent.split(/(\s+)/).forEach(w=>{
+        if(!w) return;
         if(!w.trim()){ el.appendChild(document.createTextNode(' ')); return; }
         const s=document.createElement('span'); s.className='w'; s.textContent=w;
-        el.appendChild(s); el.appendChild(document.createTextNode(' '));
+        el.appendChild(s);
       });
-    }else{ n.classList && n.classList.add('w'); el.appendChild(n); el.appendChild(document.createTextNode(' ')); }
+    }else{ n.classList && n.classList.add('w'); el.appendChild(n); }
   });
   gsap.to('#statementText .w',{opacity:1,stagger:.06,ease:'none',
     scrollTrigger:{trigger:'.statement',start:'top 78%',end:'bottom 45%',scrub:true}});
